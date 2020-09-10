@@ -129,6 +129,7 @@ To update from this repo, simply:
 - If you want to set a custom availability status during your workday, but still be available on your calendar, create an event that spans your work hours, and set the "Show As" appointment attribute to "Free". Use this for things like "Working from Home", "Traveling for Work", or "Self Quarantining". Set this as recurring per your needs.
 
 ## Known Issues
+For bug reports, see: [Issues](https://github.com/muchtall/slack-status-updater/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
 
 ## Contributing
 
