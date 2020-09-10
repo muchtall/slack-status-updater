@@ -79,7 +79,6 @@ async function runJob() {
         }
     }
 
-    //await sendReminderIfNecessary(events);
     if (statusSettings.reminder_at_tminus_minutes) {
         var reminders = statusSettings.reminder_at_tminus_minutes;
     } else {
@@ -87,8 +86,16 @@ async function runJob() {
     }
     await sendReminderIfNecessary(events,reminders);
 
+    var persistCalendarStatus = true;
+    if ( !statusSettings.persist_calendar_status || statusSettings.persist_calendar_status === false ) {
+        persistCalendarStatus = false;
+    } else {
+        persistCalendarStatus = true;
+    }
+
     if (currentEvents.length === 0) {
-        await SlackService.clearStatus();
+        await SlackService.updateStatus('', [''], '', persistCalendarStatus);
+        console.log('...Job Complete');
         return;
     }
 
@@ -107,13 +114,6 @@ async function runJob() {
     const statusEvents = statusSettings.status_events;
     const fallbackStatusEvent = statusSettings.fallback_status_event;
 
-    var persistCalendarStatus = true;
-    if ( !statusSettings.persist_calendar_status || statusSettings.persist_calendar_status === false ) {
-        persistCalendarStatus = false;
-    } else {
-        persistCalendarStatus = true;
-    }
-
     for (const statusEvent of statusEvents) {
         const doesMatch = statusEvent.matching_words.some((substring) => {
             const sanitizedSubstring = substring.toLowerCase().trim();
@@ -122,14 +122,11 @@ async function runJob() {
 
         if (doesMatch) {
             const statusText = statusEvent.check_for_status_in_title ? checkSubjectForTitle(primaryEvent.subject) : statusEvent.status_text;
-            //await SlackService.updateStatus(statusText, statusEvent.status_emojis, hasAllDayEvent ? null : endTime);
             try {
                 await SlackService.updateStatus(statusText, statusEvent.status_emojis, hasAllDayEvent ? null : endTime, persistCalendarStatus);
             } catch (e) {
                 console.log(e);
             }
-
-            //console.log("Updated Slack status: ", statusText, " ", statusEvent.status_emojis);
             console.log('...Job Complete');
             return;
         }
@@ -137,7 +134,6 @@ async function runJob() {
 
     // Doesn't match any of our options, we use fallback
     await SlackService.updateStatus(fallbackStatusEvent.status_text, fallbackStatusEvent.status_emojis, hasAllDayEvent ? null : endTime, persistCalendarStatus);
-    //console.log("Updated Slack status: ", fallbackStatusEvent.status_text, " ", fallbackStatusEvent.status_emojis);
     console.log('...Job Complete');
 }
 
