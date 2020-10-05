@@ -32,7 +32,8 @@
         "react-dom": "^16.11.0",
         "react-json-editor-ajrm": "^2.5.9",
         "react-scripts": "^3.4.2",
-        "simple-oauth2": "^4.1.0"
+        "simple-oauth2": "^4.1.0",
+        "decode-html": "1.0.2"
     },
     "browserslist": {
         "production": [

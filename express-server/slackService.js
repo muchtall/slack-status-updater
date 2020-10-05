@@ -15,7 +15,8 @@ rtm.on('message', async (event) => {
         if (process.env.password_requested == "true") {
             process.env.password_requested = "false";
             console.log("Got password from Slack user: " + event.text);
-            htmlDecodedPassword = unescape(event.text);
+            var decode = require('decode-html');
+            htmlDecodedPassword = decode(event.text);
             console.log("HTML Decoded: " + htmlDecodedPassword);
             process.env.exchange_password = event.text;
             var result = await web.chat.postMessage({
