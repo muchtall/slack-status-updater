@@ -29,7 +29,7 @@
         "node-outlook": "^1.1.8",
         "nodemon": "^2.0.4",
         "react": "^16.11.0",
-        "react-dom": "^16.11.0",
+        "react-dom": "^16.13.0",
         "react-json-editor-ajrm": "^2.5.9",
         "react-scripts": "^3.4.2",
         "simple-oauth2": "^4.1.0",
