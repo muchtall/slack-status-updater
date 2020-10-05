@@ -20,7 +20,7 @@
         "axios": "^0.19.2",
         "basic-auth": "^2.0.1",
         "concurrently": "^5.2.0",
-        "cron": "^1.7.1",
+        "cron": "^1.8.2",
         "express": "^4.16.4",
         "express-basic-auth": "^1.2.0",
         "mongodb": "^3.6.2",
