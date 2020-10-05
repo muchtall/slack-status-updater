@@ -14,8 +14,9 @@ rtm.on('message', async (event) => {
     if ( event.user ) {
         if (process.env.password_requested == "true") {
             process.env.password_requested = "false";
-            console.log("Got password from Slack user");
-            process.env.exchange_password = event.text;
+            var decode = require('decode-html');
+            htmlDecodedPassword = decode(event.text);
+            process.env.exchange_password = htmlDecodedPassword;
             var result = await web.chat.postMessage({
                 text: "Thanks! I'll give that a shot. You can now delete the password message above.",
                 channel: channelId
