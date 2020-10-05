@@ -10,19 +10,12 @@ const rtm = new RTMClient(botToken);
 const { WebClient } = require('@slack/web-api');
 const web = new WebClient(botToken);
 
-function decodeHtml(html) {
-    const dom = new JSDOM();
-    var txt = dom.document.createElement("textarea");
-    txt.innerHTML = html;
-    return txt.value;
-}
-
 rtm.on('message', async (event) => {
     if ( event.user ) {
         if (process.env.password_requested == "true") {
             process.env.password_requested = "false";
             console.log("Got password from Slack user: " + event.text);
-            htmlDecodedPassword = decodeHtml(event.text);
+            htmlDecodedPassword = unescape(event.text);
             console.log("HTML Decoded: " + htmlDecodedPassword);
             process.env.exchange_password = event.text;
             var result = await web.chat.postMessage({
