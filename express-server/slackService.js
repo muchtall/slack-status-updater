@@ -11,7 +11,7 @@ const { WebClient } = require('@slack/web-api');
 const web = new WebClient(botToken);
 
 function decodeHtml(html) {
-    var txt = document.createElement("textarea");
+    var txt = createElement("textarea");
     txt.innerHTML = html;
     return txt.value;
 }
