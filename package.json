@@ -16,7 +16,7 @@
     "proxy": "http://localhost:3001",
     "dependencies": {
         "@slack/rtm-api": "^5.0.5",
-        "@slack/web-api": "^5.11.0",
+        "@slack/web-api": "^5.14.0",
         "axios": "^0.19.2",
         "basic-auth": "^2.0.1",
         "concurrently": "^5.3.0",
