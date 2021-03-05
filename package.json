@@ -30,7 +30,7 @@
         "nodemon": "^2.0.4",
         "react": "^16.13.1",
         "react-dom": "^16.13.0",
-        "react-json-editor-ajrm": "^2.5.9",
+        "react-json-editor-ajrm": "^2.5.13",
         "react-scripts": "^4.0.3",
         "simple-oauth2": "^4.1.0",
         "decode-html": "1.0.2"
