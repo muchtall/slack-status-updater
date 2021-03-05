@@ -33,7 +33,7 @@
         "react-json-editor-ajrm": "^2.5.13",
         "react-scripts": "^4.0.3",
         "simple-oauth2": "^4.2.0",
-        "decode-html": "1.0.2"
+        "decode-html": "2.0.0"
     },
     "browserslist": {
         "production": [
