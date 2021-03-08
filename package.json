@@ -15,7 +15,7 @@
     "license": "MIT",
     "proxy": "http://localhost:3001",
     "dependencies": {
-        "@slack/rtm-api": "^5.0.5",
+        "@slack/rtm-api": "^6.0.0",
         "@slack/web-api": "^6.0.0",
         "axios": "^0.21.1",
         "basic-auth": "^2.0.1",
