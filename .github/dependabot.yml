@@ -1,0 +1,31 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: y18n
+    versions:
+    - 4.0.1
+    - 4.0.2
+  - dependency-name: concurrently
+    versions:
+    - 6.0.0
+    - 6.0.1
+  - dependency-name: mongodb
+    versions:
+    - 3.6.3
+    - 3.6.5
+  - dependency-name: react-dom
+    versions:
+    - 16.13.1
+    - 17.0.1
+  - dependency-name: react-json-editor-ajrm
+    versions:
+    - 2.5.13
+  - dependency-name: react-scripts
+    versions:
+    - 4.0.1
+    - 4.0.2
