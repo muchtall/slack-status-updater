@@ -23,7 +23,7 @@
         "cron": "^1.8.2",
         "express": "^4.16.4",
         "express-basic-auth": "^1.2.0",
-        "mongodb": "^3.6.4",
+        "mongodb": "^3.6.9",
         "node-ews": "^3.4.2",
         "node-fetch": "^2.6.1",
         "node-outlook": "^1.1.8",
